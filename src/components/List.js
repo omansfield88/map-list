@@ -10,7 +10,8 @@ class List extends Component {
     addresses : [
       '3 Robert Allan Way',
       '54 Eaton Gardens',
-      '1a Vanbrugh Hill'
+      '1a Vanbrugh Hill',
+        '123 fake street'
     ],
     name: 'Oliver'
   }
