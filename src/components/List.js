@@ -11,7 +11,6 @@ class List extends Component {
   }
 
   componentDidMount() {
-
     //Send API request
     //Convert response data to json
     //Set new state by creating a newState array, mapping over the data.listing array then using that array to setState
@@ -32,8 +31,8 @@ class List extends Component {
 
   displayItems = () => {
     return (
-        this.state.listing.map ((address, i) =>
-        <Item address={address.displayable_address}/>
+        this.state.listing.map ((listing, i) =>
+        <Item address={listing.displayable_address}/>
       )
     )
   }
