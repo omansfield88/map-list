@@ -12,6 +12,7 @@ class Page extends Component {
     title: 'This is a title'
   }
 
+
   setNewTitle = () => {
     this.setState({title: 'New title'})
   }
@@ -21,8 +22,6 @@ class Page extends Component {
       <div className="home-page">
         <p>{this.state.title}</p>
         <List />
-        <Button label='Change title' handleClick={this.setNewTitle}/>
-        <SetStateHook />
       </div>
     );
   }

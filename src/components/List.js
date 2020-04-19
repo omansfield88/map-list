@@ -7,19 +7,33 @@ import Item from './Item';
 class List extends Component {
 
   state = {
-    addresses : [
-      '3 Robert Allan Way',
-      '54 Eaton Gardens',
-      '1a Vanbrugh Hill',
-        '123 fake street'
-    ],
-    name: 'Oliver'
+    listing: []
+  }
+
+  componentDidMount() {
+
+    //Send API request
+    //Convert response data to json
+    //Set new state by creating a newState array, mapping over the data.listing array then using that array to setState
+    const url = `http://api.zoopla.co.uk/api/v1/property_listings.js?lat_min=53.369653&lat_max=53.388398&lon_min=-2.907952&lon_max=-2.950458&radius=1&api_key=${process.env.REACT_APP_ZOOPLA_API_KEY}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then( (data) => {
+          const newState = [];
+          data.listing.map((property) => newState.push(property) );
+          this.setState({
+            listing: newState
+          })
+        }
+      )
+
+      .catch( (error) => { console.log('fucking whoops') } )
   }
 
   displayItems = () => {
     return (
-        this.state.addresses.map ((address, i) =>
-        <Item address={address}/>
+        this.state.listing.map ((address, i) =>
+        <Item address={address.displayable_address}/>
       )
     )
   }

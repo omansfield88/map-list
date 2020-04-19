@@ -5,6 +5,7 @@ import '../App.css';
 
 class Item extends Component {
 
+
   render(props) {
     return(
 
@@ -12,7 +13,6 @@ class Item extends Component {
         <li>
           <p>{this.props.address}</p>
         </li>
-        <p>{process.env.REACT_APP_ZOOPLA_API_KEY}</p>
       </div>
     )
   }
